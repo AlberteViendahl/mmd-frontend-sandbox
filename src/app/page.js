@@ -1,14 +1,22 @@
+"use client";
+import { useState } from "react";
 import Button from "@/components/Button";
 import Cookie from "@/components/Cookie";
-
-import { FaBeer } from "react-icons/fa";
+import If from "@/components/If";
+import { Children } from "react";
 
 export default function Home() {
+  const [showC, setShowC] = useState(true);
+
+  const handleAccept = () => {
+    setShowC(false);
+  };
+
   return (
     <div>
-{/*       <Button /> */}
-{/*       <FaBeer className="button"/> */}
-<Cookie/>
+      <If condition={showC}>
+        <Cookie onAccept={handleAccept} />
+      </If>
     </div>
   );
 }
